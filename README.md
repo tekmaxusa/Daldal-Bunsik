@@ -26,16 +26,16 @@ App is served at [http://localhost:3000](http://localhost:3000) (nginx).
 
 ## Deploy with GitHub Actions (GitHub Pages)
 
-Workflow: [`.github/workflows/deploy-github-pages.yml`](.github/workflows/deploy-github-pages.yml) — runs on every push to `main`.
+Workflow: [`.github/workflows/deploy-github-pages.yml`](.github/workflows/deploy-github-pages.yml) — builds on every push to `main` and updates the **`gh-pages`** branch (avoids the “Failed to create deployment 404” that happens when Pages is not set to the official Actions source).
 
 **One-time setup**
 
-1. GitHub repo → **Settings** → **Pages**
-2. Under **Build and deployment**, set **Source** to **GitHub Actions** (not “Deploy from a branch”).
-3. Push to `main`; open the **Actions** tab to watch **Deploy to GitHub Pages**.
-4. When it finishes, the site is at **https://tekmaxusa.github.io/Daldal-Bunsik/**
+1. **Settings** → **Actions** → **General** → “Workflow permissions”: choose **Read and write** (needed so the workflow can push `gh-pages`).
+2. **Settings** → **Pages** → **Build and deployment** → **Source**: **Deploy from a branch**
+3. **Branch**: **`gh-pages`** / **/ (root)** → Save.
+4. Push to `main` (or re-run the workflow). Site: **https://tekmaxusa.github.io/Daldal-Bunsik/**
 
-If you rename the repository, update `VITE_BASE_URL` in the workflow to match (`/Your-Repo-Name/`).
+If you rename the repository, change `VITE_BASE_URL` in the workflow to `/Your-Repo-Name/`.
 
 ## Repo
 
