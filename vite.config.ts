@@ -5,7 +5,19 @@ import {defineConfig, loadEnv} from 'vite';
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
-  const base = env.VITE_BASE_URL || process.env.VITE_BASE_URL || '/';
+  /** GitHub Actions sets GITHUB_REPOSITORY=owner/Repo-Name → Pages lives at /Repo-Name/ */
+  const repo =
+    typeof process.env.GITHUB_REPOSITORY === 'string'
+      ? process.env.GITHUB_REPOSITORY.split('/')[1]
+      : undefined;
+  const ciPagesBase =
+    process.env.GITHUB_ACTIONS === 'true' && repo ? `/${repo}/` : '/';
+
+  let base =
+    env.VITE_BASE_URL ||
+    process.env.VITE_BASE_URL ||
+    (ciPagesBase !== '/' ? ciPagesBase : '/');
+  if (base !== '/' && !base.endsWith('/')) base += '/';
 
   return {
     base,
