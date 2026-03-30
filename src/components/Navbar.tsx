@@ -4,6 +4,7 @@ import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '../lib/utils';
 import { useOrder } from '../context/OrderContext';
+import OrderCta from './OrderCta';
 
 const navLinks = [
   { name: 'Menu', path: '/menu' },
@@ -67,12 +68,8 @@ export default function Navbar() {
               </Link>
             ))}
           </div>
-          <Link
-            to="/order"
-            className={cn(
-              'relative bg-brand-red text-white font-fredoka font-bold px-8 py-3 rounded-full shadow-[0_4px_20px_rgba(227,62,35,0.3)] hover:scale-105 active:scale-95 transition-all text-sm uppercase tracking-wider inline-flex items-center gap-2',
-              location.pathname === '/order' && 'ring-2 ring-brand-dark ring-offset-2 ring-offset-brand-cream'
-            )}
+          <OrderCta
+            className="relative bg-brand-red text-white font-fredoka font-bold px-8 py-3 rounded-full shadow-[0_4px_20px_rgba(227,62,35,0.3)] hover:scale-105 active:scale-95 transition-all text-sm uppercase tracking-wider inline-flex items-center gap-2"
           >
             ORDER NOW
             {itemCount > 0 ? (
@@ -80,7 +77,7 @@ export default function Navbar() {
                 {itemCount > 99 ? '99+' : itemCount}
               </span>
             ) : null}
-          </Link>
+          </OrderCta>
         </div>
 
         {/* Mobile Toggle */}
@@ -114,17 +111,14 @@ export default function Navbar() {
                   {link.name}
                 </Link>
               ))}
-              <Link
-                to="/order"
-                className="bg-brand-red text-white font-fredoka font-bold text-center py-4 rounded-full shadow-lg flex items-center justify-center gap-2"
-              >
+              <OrderCta className="bg-brand-red text-white font-fredoka font-bold text-center py-4 rounded-full shadow-lg flex items-center justify-center gap-2">
                 ORDER NOW
                 {itemCount > 0 ? (
                   <span className="min-w-[24px] h-6 px-2 rounded-full bg-white text-brand-red text-sm font-fredoka font-bold flex items-center justify-center">
                     {itemCount > 99 ? '99+' : itemCount}
                   </span>
                 ) : null}
-              </Link>
+              </OrderCta>
             </div>
           </motion.div>
         )}

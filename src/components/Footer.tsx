@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Share2, Heart, ShoppingCart } from 'lucide-react';
 import { useOrder } from '../context/OrderContext';
+import OrderCta from './OrderCta';
 
 export default function Footer() {
   const { itemCount } = useOrder();
@@ -59,10 +60,7 @@ export default function Footer() {
 
       {/* Floating Order Button */}
       <div className="fixed bottom-8 right-8 z-50">
-        <Link
-          to="/order"
-          className="bg-brand-red text-white font-fredoka font-bold px-8 py-4 rounded-full shadow-[0_10px_30px_rgba(227,62,35,0.4)] flex items-center gap-3 hover:scale-105 active:scale-95 transition-all uppercase tracking-widest text-sm"
-        >
+        <OrderCta className="bg-brand-red text-white font-fredoka font-bold px-8 py-4 rounded-full shadow-[0_10px_30px_rgba(227,62,35,0.4)] flex items-center gap-3 hover:scale-105 active:scale-95 transition-all uppercase tracking-widest text-sm">
           <ShoppingCart size={20} />
           ORDER ONLINE NOW
           {itemCount > 0 ? (
@@ -70,7 +68,7 @@ export default function Footer() {
               {itemCount > 99 ? '99+' : itemCount}
             </span>
           ) : null}
-        </Link>
+        </OrderCta>
       </div>
     </footer>
   );

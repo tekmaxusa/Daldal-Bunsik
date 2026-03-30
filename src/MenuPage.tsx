@@ -4,6 +4,7 @@ import { motion } from 'motion/react';
 import MenuSection from './components/MenuSection';
 import { MENU_ITEMS, MENU_SECTION_ORDER } from './constants';
 import { publicUrl } from './lib/utils';
+import OrderCta from './components/OrderCta';
 import { useOrder } from './context/OrderContext';
 
 /** Fixed nav (~88px) + sticky category bar — must match scroll-padding-top in index.css */
@@ -91,12 +92,9 @@ export default function MenuPage() {
               {cat.label}
             </Link>
           ))}
-          <Link
-            to="/order"
-            className="font-fredoka font-bold text-sm tracking-wider uppercase bg-brand-dark text-white px-5 py-2 rounded-full hover:opacity-90 transition-opacity"
-          >
+          <OrderCta className="font-fredoka font-bold text-sm tracking-wider uppercase bg-brand-dark text-white px-5 py-2 rounded-full hover:opacity-90 transition-opacity">
             Cart{itemCount > 0 ? ` (${itemCount})` : ''}
-          </Link>
+          </OrderCta>
         </div>
       </div>
 

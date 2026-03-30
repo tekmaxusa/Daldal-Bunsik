@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { AnimatePresence, motion } from 'motion/react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -7,7 +7,6 @@ import HomePage from './HomePage';
 import MenuPage from './MenuPage';
 import AboutPage from './AboutPage';
 import LocationsPage from './LocationsPage';
-import OrderPage from './OrderPage';
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -47,14 +46,7 @@ function AnimatedRoutes() {
             </PageWrapper>
           }
         />
-        <Route
-          path="/order"
-          element={
-            <PageWrapper>
-              <OrderPage />
-            </PageWrapper>
-          }
-        />
+        <Route path="/order" element={<Navigate to="/" replace />} />
       </Routes>
     </AnimatePresence>
   );

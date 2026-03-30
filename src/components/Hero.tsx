@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { ArrowRight, Star, Utensils } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { publicUrl } from '../lib/utils';
+import OrderCta from './OrderCta';
 
 export default function Hero() {
   return (
@@ -39,12 +40,9 @@ export default function Hero() {
             >
               EXPLORE MENU <ArrowRight size={20} />
             </Link>
-            <Link
-              to="/order"
-              className="bg-brand-dark text-white font-fredoka font-bold text-lg px-10 py-5 rounded-full flex items-center justify-center gap-3 shadow-[0_10px_30px_rgba(0,0,0,0.15)] hover:scale-105 active:scale-95 transition-all uppercase tracking-widest"
-            >
+            <OrderCta className="bg-brand-dark text-white font-fredoka font-bold text-lg px-10 py-5 rounded-full flex items-center justify-center gap-3 shadow-[0_10px_30px_rgba(0,0,0,0.15)] hover:scale-105 active:scale-95 transition-all uppercase tracking-widest">
               ORDER NOW
-            </Link>
+            </OrderCta>
             <Link
               to="/locations"
               className="bg-white border-2 border-brand-dark text-brand-dark font-fredoka font-bold text-lg px-10 py-5 rounded-full flex items-center justify-center gap-3 hover:bg-brand-dark hover:text-white transition-all uppercase tracking-widest"

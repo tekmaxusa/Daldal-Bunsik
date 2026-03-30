@@ -1,5 +1,4 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { MenuItem } from '../types';
 import { useOrder } from '../context/OrderContext';
@@ -13,8 +12,6 @@ interface MenuSectionProps {
 
 export default function MenuSection({ title, description, items, reverse = false }: MenuSectionProps) {
   const { addItem } = useOrder();
-  const navigate = useNavigate();
-
   return (
     <section className="py-20 max-w-7xl mx-auto px-6">
       <div className={`flex flex-col ${reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-16 items-start`}>
@@ -84,10 +81,7 @@ export default function MenuSection({ title, description, items, reverse = false
                   {item.orderSpecial ? (
                     <button
                       type="button"
-                      onClick={() => {
-                        addItem(item);
-                        navigate('/order');
-                      }}
+                      onClick={() => addItem(item)}
                       className="w-full py-3 rounded-2xl border-2 border-brand-red font-fredoka font-bold text-brand-red text-sm uppercase tracking-widest hover:bg-brand-red hover:text-white transition-colors"
                     >
                       Order special
