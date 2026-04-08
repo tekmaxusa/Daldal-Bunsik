@@ -71,7 +71,15 @@ export default function LocationsSection() {
                   <div className="text-lg text-gray-600 space-y-1">
                     {loc.hoursWeekdays ? (
                       <>
-                        <p>{loc.hoursWeekdays}</p>
+                        {loc.hoursWeekdaysMobileLines ? (
+                          <div className="md:hidden space-y-0.5">
+                            <p>{loc.hoursWeekdaysMobileLines[0]}</p>
+                            <p>{loc.hoursWeekdaysMobileLines[1]}</p>
+                          </div>
+                        ) : null}
+                        <p className={loc.hoursWeekdaysMobileLines ? 'hidden md:block' : undefined}>
+                          {loc.hoursWeekdays}
+                        </p>
                         {loc.hoursSunday && <p>{loc.hoursSunday}</p>}
                       </>
                     ) : (

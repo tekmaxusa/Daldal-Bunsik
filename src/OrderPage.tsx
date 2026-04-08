@@ -54,7 +54,7 @@ function validateSchedule(date: string, time: string): string | null {
   if (Number.isNaN(when.getTime())) return 'Please choose a valid date and time.';
   if (when.getTime() < Date.now()) return 'Please choose a future date and time.';
   if (!isWithinCarrolltonPostedHours(date, time)) {
-    return 'We are closed Wednesdays, and open Mon, Tue, Thu–Sun 11:00 AM – 9:00 PM Central. Please pick a valid date and time.';
+    return 'We are closed Wednesdays, and open Mon, Tue, Thu–Sun 11:00 AM – 8:30 PM. Please pick a valid date and time.';
   }
   return null;
 }
@@ -408,8 +408,8 @@ export default function OrderPage() {
                   </div>
                 </div>
                 <p className="text-xs text-brand-dark/50 font-nunito leading-relaxed">
-                  We&apos;ll confirm this slot by message. Hours: Mon, Tue, Thu–Sun 11:00 AM – 9:00 PM
-                  CST. Closed Wednesdays. Times are Central Time.
+                  We&apos;ll confirm this slot by message. Hours: Mon, Tue, Thu–Sun 11:00 AM – 8:30 PM.
+                  Closed Wednesdays.
                 </p>
               </div>
             </div>
@@ -457,7 +457,7 @@ export default function OrderPage() {
                     value={customer.phone}
                     onChange={(e) => updateCustomer('phone', e.target.value)}
                     className="w-full rounded-2xl border border-gray-200 px-4 py-3.5 font-nunito text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-red/30"
-                    placeholder="(972) 555-0123"
+                    placeholder="(972) 213-0186"
                   />
                 </div>
                 {fulfillment === 'delivery' ? (

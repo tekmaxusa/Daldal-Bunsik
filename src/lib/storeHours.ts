@@ -1,8 +1,8 @@
-/** Carrollton, TX — America/Chicago. Open Mon, Tue, Thu–Sun 11:00–21:00; closed Wed. */
+/** Carrollton, TX — America/Chicago. Open Mon, Tue, Thu–Sun 11:00–20:30; closed Wed. */
 const OPEN_DAYS = new Set(['Mon', 'Tue', 'Thu', 'Fri', 'Sat', 'Sun']);
 
 const OPEN_START_MIN = 11 * 60;
-const OPEN_END_MIN = 21 * 60;
+const OPEN_END_MIN = 20 * 60 + 30;
 
 function chicagoTimeParts(date: Date): { weekday: string; minutes: number } {
   const parts = new Intl.DateTimeFormat('en-US', {
@@ -66,7 +66,7 @@ export function parseClockHm(hm: string): number | null {
 }
 
 /**
- * Whether a pickup/delivery slot falls within posted hours, treating the chosen time as Central.
+ * Whether a pickup/delivery slot falls within posted hours (interpreted in America/Chicago).
  */
 export function isWithinCarrolltonPostedHours(ymd: string, hm: string): boolean {
   if (!isCarrolltonOpenOnCalendarDate(ymd)) return false;

@@ -158,7 +158,17 @@ export default function LocationsPage() {
               <div>
                 <h2 className="text-xl font-fredoka font-bold normal-case mb-3">Hours</h2>
                 <div className="space-y-2 font-nunito text-base text-white/90">
-                  <p className="font-semibold">{store.hoursWeekdays ?? store.hours}</p>
+                  {store.hoursWeekdaysMobileLines ? (
+                    <div className="md:hidden space-y-1 font-semibold">
+                      <p>{store.hoursWeekdaysMobileLines[0]}</p>
+                      <p className="text-white/85">{store.hoursWeekdaysMobileLines[1]}</p>
+                    </div>
+                  ) : null}
+                  <p
+                    className={`font-semibold ${store.hoursWeekdaysMobileLines ? 'hidden md:block' : ''}`}
+                  >
+                    {store.hoursWeekdays ?? store.hours}
+                  </p>
                   {store.hoursSunday && (
                     <p className="text-white/75 font-semibold tracking-wide">{store.hoursSunday}</p>
                   )}

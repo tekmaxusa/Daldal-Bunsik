@@ -1,5 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { publicUrl } from '../lib/utils';
+
+const logoSrc = publicUrl('images/daldal-bunsik-logo.png');
 
 export default function Footer() {
   return (
@@ -14,10 +17,15 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-10 sm:gap-12 mb-16 sm:mb-20">
           <div className="md:col-span-4 space-y-4 sm:space-y-6 sm:col-span-2 md:col-span-4">
-            <Link to="/" className="inline-block">
-              <span className="text-3xl sm:text-4xl font-fredoka font-bold tracking-tighter uppercase">
-                DALDAL BUNSIK
-              </span>
+            <Link to="/" className="inline-block" aria-label="Daldal Bunsik — home">
+              <img
+                src={logoSrc}
+                alt=""
+                width={1536}
+                height={600}
+                className="h-10 w-auto sm:h-12 md:h-14 max-w-[min(100%,14rem)] sm:max-w-[16rem] object-contain object-center opacity-95 hover:opacity-100 transition-opacity"
+                decoding="async"
+              />
             </Link>
             <p className="text-gray-400 text-base sm:text-lg leading-relaxed max-w-xs">
               Korean comfort food in the heart of Carrollton.

@@ -4,10 +4,9 @@ import { ArrowRight, Phone, Star, Utensils } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { publicUrl, phoneToTelHref } from '../lib/utils';
 import { LOCATIONS } from '../constants';
-import OrderCta from './OrderCta';
 
 const heroImageSrc = publicUrl('images/chicken-rice-plate.png');
-const storePhone = LOCATIONS[0]?.phone ?? '(972) XXX-XXXX';
+const storePhone = LOCATIONS[0]?.phone ?? '(972) 213-0186';
 
 const heroBodyCopy =
   'Jajangmyeon. Jjamppong. Tangsuyuk. Naengmyeon. Dumpling soups. Fast, fresh Korean soul food in Carrollton, TX.';
@@ -38,15 +37,16 @@ export default function Hero() {
 
           <div className="flex flex-col gap-3 px-5 pt-4 pb-8">
             <div>
-              <h1 className="text-[clamp(1.75rem,7.5vw,2.25rem)] font-fredoka font-bold leading-[1.05] text-brand-red uppercase tracking-tight">
-                KOREAN <span className="text-brand-dark">SOUL</span> FOOD
+              <h1 className="text-[48px] font-fredoka font-bold leading-[1.05] text-brand-red uppercase tracking-tight">
+                KOREAN <br />
+                <span className="text-brand-dark">SOUL</span> FOOD
               </h1>
-              <p className="mt-2 text-sm text-gray-600 leading-relaxed font-medium font-nunito">
+              <p className="mt-2 text-base sm:text-lg text-gray-600 leading-relaxed font-medium font-nunito">
                 {heroBodyCopy}
               </p>
             </div>
 
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-3 mt-3 sm:mt-4">
               <Link
                 to="/menu"
                 className="bg-brand-red text-white font-fredoka font-bold text-base py-4 rounded-full flex items-center justify-center gap-2 shadow-[0_8px_24px_rgba(227,62,35,0.35)] active:scale-[0.98] transition-transform uppercase tracking-widest"
@@ -55,10 +55,10 @@ export default function Hero() {
               </Link>
               <a
                 href={phoneToTelHref(storePhone)}
-                className="bg-white border-2 border-brand-dark text-brand-dark font-fredoka font-bold text-base py-4 rounded-full flex items-center justify-center gap-2 active:scale-[0.98] transition-transform uppercase tracking-widest"
+                className="bg-white text-black border-2 border-black font-fredoka font-bold text-base py-4 rounded-full flex items-center justify-center gap-2 shadow-[0_8px_24px_rgba(0,0,0,0.08)] active:scale-[0.98] transition-transform uppercase tracking-widest"
               >
-                <Phone size={20} strokeWidth={2.5} />
-                Call Us
+                <Phone size={20} strokeWidth={2.5} className="text-black" />
+                CALL US
               </a>
             </div>
           </div>
@@ -76,20 +76,19 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 bg-white/50 backdrop-blur-sm px-4 py-2 rounded-full border border-brand-red/10 mb-8">
+            <div className="inline-flex items-center gap-2 bg-white/50 backdrop-blur-sm px-4 py-2 rounded-full border border-brand-red/10 mb-6 sm:mb-7">
               <Star className="text-brand-red fill-brand-red w-4 h-4" />
               <span className="text-xs font-bold tracking-[0.2em] text-brand-red uppercase">
                 Authentic Korean Soul Food
               </span>
             </div>
 
-            <h1 className="text-[clamp(2.25rem,5.5vw,4.5rem)] font-fredoka font-bold leading-[0.85] text-brand-red mb-6 sm:mb-8 uppercase">
+            <h1 className="text-[48px] font-fredoka font-bold leading-[1.05] text-brand-red mb-6 sm:mb-8 uppercase">
               KOREAN <br />
-              <span className="text-brand-dark">SOUL</span> <br />
-              FOOD
+              <span className="text-brand-dark">SOUL</span> FOOD
             </h1>
 
-            <p className="text-lg sm:text-xl text-gray-600 max-w-lg mb-8 sm:mb-12 leading-relaxed font-medium font-nunito">
+            <p className="text-xl sm:text-2xl text-gray-600 max-w-xl mb-8 sm:mb-12 leading-relaxed font-medium font-nunito">
               {heroBodyCopy}
             </p>
 
@@ -100,9 +99,13 @@ export default function Hero() {
               >
                 EXPLORE MENU <ArrowRight size={20} />
               </Link>
-              <OrderCta className="bg-brand-dark text-white font-fredoka font-bold text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-5 rounded-full flex items-center justify-center gap-3 shadow-[0_10px_30px_rgba(0,0,0,0.15)] hover:scale-105 active:scale-95 transition-all uppercase tracking-widest">
-                ORDER NOW
-              </OrderCta>
+              <a
+                href={phoneToTelHref(storePhone)}
+                className="bg-white text-black border-2 border-black font-fredoka font-bold text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-5 rounded-full flex items-center justify-center gap-3 shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:scale-105 active:scale-95 transition-all uppercase tracking-widest"
+              >
+                <Phone size={20} strokeWidth={2.5} className="text-black" />
+                CALL US
+              </a>
             </div>
           </motion.div>
 

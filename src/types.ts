@@ -31,4 +31,6 @@ export interface Location {
   /** Optional split lines for hours display */
   hoursWeekdays?: string;
   hoursSunday?: string;
+  /** Mobile: days on first line, times on second (avoids one long wrapped line) */
+  hoursWeekdaysMobileLines?: readonly [string, string];
 }

@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { cn } from '../lib/utils';
+import { cn, publicUrl } from '../lib/utils';
 import { useOrder } from '../context/OrderContext';
 import OrderCta from './OrderCta';
+
+const logoSrc = publicUrl('images/daldal-bunsik-logo.png');
 
 const navLinks = [
   { name: 'Menu', path: '/menu' },
@@ -38,10 +40,15 @@ export default function Navbar() {
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link to="/" className="flex items-center">
-          <span className="text-2xl sm:text-3xl md:text-4xl font-fredoka font-bold tracking-tighter text-brand-red uppercase">
-            DALDAL BUNSIK
-          </span>
+        <Link to="/" className="flex items-center min-w-0 pr-2 shrink-0" aria-label="Daldal Bunsik — home">
+          <img
+            src={logoSrc}
+            alt=""
+            width={1536}
+            height={600}
+            className="h-11 w-auto sm:h-12 md:h-14 lg:h-[3.75rem] max-w-[min(72vw,13rem)] sm:max-w-[min(72vw,16rem)] md:max-w-[18rem] object-contain object-center"
+            decoding="async"
+          />
         </Link>
 
         {/* Desktop Nav */}
